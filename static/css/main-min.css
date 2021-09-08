@@ -28,3 +28,7 @@ code {
     background-color: #fff8e3;
     padding: 3px;
 }
+
+p {
+    text-align: justify;
+}

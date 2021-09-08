@@ -29,7 +29,8 @@ code {
     padding: 3px;
 }
 
-p {
+.post-content p, .post-summary {
     text-align: justify;
+    text-indent: 50px;
 }
 

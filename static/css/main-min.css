@@ -29,7 +29,14 @@ code {
     padding: 3px;
 }
 
-.post-content p, .post-summary {
+p {
     text-align: justify;
+}
+
+p, pre {
+    margin-bottom: 1.8rem;
+}
+
+.post-content p:first-child, .post-summary {
     text-indent: 50px;
 }

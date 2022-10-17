@@ -56,3 +56,15 @@ hr {
     padding-bottom: 0.2em;
     margin-bottom: 0;
 }
+
+iframe {
+    width: 100%;
+    height: 205px;
+}
+  
+@media screen and (min-width: 48em) {
+    iframe {
+        width: 100%;
+        height: 430px;
+    }
+}

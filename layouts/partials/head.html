@@ -1,15 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
+  {{ $description := "" }}
+  {{ if .IsPage }}
+    {{ if .Params.Description }}
+      {{ $description = .Params.Description }}
+    {{ else }}
+      {{ $description = .Summary }}
+    {{ end }}
+  {{ else if .Params.Description }}
+    {{ $description = .Params.Description }}
+  {{ else }}
+    {{ $description = .Site.Params.Description }}
+  {{ end }}
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  {{ if .IsPage }}
   <title>{{ .Title }} - {{ .Site.Title }}</title>
+  {{ else }}
+  <title>{{ .Site.Title }} - {{ $description }}</title>
+  {{ end }}
+
   <meta name="monetization" content="$ilp.uphold.com/zDFj9FWE4m6e">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="Bruno Croci">
-  <meta name="keywords" content="">
+  <meta name="description" content="{{ $description }}">
+  <meta name="author" content="{{ .Site.Params.Author }}">
+  <meta name="keywords" content="{{ .Site.Params.Keywords }}">
   <link rel="canonical" href="{{ .Permalink }}">
+
+  <meta property="og:title" content="{{ .Title }}" />
+  <meta property="og:description" content="{{ $description }}" />
+  <meta property="og:url" content="{{ .Permalink }}" />
+  {{ if .Params.Thumb }}
+  <meta property="og:image" content="{{ .Permalink }}{{ .Params.Thumb }}" />
+  {{ end }}
+  
+  <meta name="twitter:title" content="{{ .Title }}">
+  <meta name="twitter:description" content="{{ $description }}">
+  {{ if .Params.Thumb }}
+  <meta name="twitter:image" content="{{ .Permalink }}{{ .Params.Thumb }}">
+  <meta name="twitter:card" content="summary_large_image">
+  {{ end }}
 
   <!-- Custom CSS -->
   <!-- Those css minifined and combined together. See combined-min.css below

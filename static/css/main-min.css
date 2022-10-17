@@ -40,3 +40,19 @@ p, pre {
 .post-content p:first-child, .post-summary {
     text-indent: 50px;
 }
+
+.post-content p:first-child > img {
+    margin-left: -50px;
+}
+
+hr {
+    margin-top: 1.9em;
+    margin-bottom: 1em;
+    display: block;
+    border: 1px dashed #eeeeee;
+  }
+  
+.py2 {
+    padding-bottom: 0.2em;
+    margin-bottom: 0;
+}

@@ -1,0 +1,4 @@
+<div class="image-div">
+    <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" {{ with .Title }} title="{{ . }}" {{ end }} />
+    <p class="image-description">{{ .Text }}</p>
+</div>

@@ -1,9 +1,10 @@
 <rss version="2.0">
 <channel>
-    <title>{{ .Title }}, by {{ .Site.Author }}</title>
+    <title>{{ .Title }}, by {{ .Site.Params.Author }}</title>
+    <description>{{ .Site.Params.Description }}</description>
     <link>{{ .Permalink }}</link>
     {{ with .Site.LanguageCode }}<language>{{.}}</language>{{end}}
-    {{ with .Site.Author }}<author>{{.}}</author>{{end}}
+    {{ with .Site.Params.Author }}<author>{{.}}</author>{{end}}
     {{ with .Site.Copyright }}<copyright>{{.}}</copyright>{{end}}
     <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 MST" }}</pubDate>
     <lastBuildDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 MST" }}</lastBuildDate>
@@ -14,7 +15,7 @@
         <title>{{ .Title }}</title>
         <link>{{ .Permalink }}</link>
         <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 MST" }}</pubDate>
-        {{with .Site.Author}}<author>{{.}}</author>{{end}}
+        {{with .Site.Params.Author}}<author>{{.}}</author>{{end}}
         <guid>{{ .Permalink }}</guid>
         <description>{{ .Summary | html }}</description>
     </item>

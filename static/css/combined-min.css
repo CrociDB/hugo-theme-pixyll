@@ -143,3 +143,6 @@ iframe {
   margin-bottom: .9em;
 }
 
+code {
+  font-family: "Ubuntu Mono", Courier;
+}

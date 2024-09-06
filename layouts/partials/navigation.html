@@ -4,13 +4,6 @@
 <a href="{{ .Site.BaseURL }}{{ .Site.LanguagePrefix }}cameras/">Cameras</a>
 <a href="{{ .Site.BaseURL }}{{ .Site.LanguagePrefix }}tags/">{{ i18n "tags" }}</a>
 <a href="https://bruno.croci.me/">Bruno Croci</a>
-{{- if .Site.IsMultiLingual -}}
-{{- range $lang := .Site.Languages -}}
-{{- if ne $.Site.Language $lang -}}
-<a href="/{{ $lang }}">{{ $lang }}</a>
-{{- end -}}
-{{- end -}}
-{{- end -}}
 {{ if isset .Site.Params "search_engine" }}
 <form class="navbar-search" action="{{ .Site.BaseURL }}/search/index.html"
     onsubmit="return validateForm(this.elements['q'].value);">

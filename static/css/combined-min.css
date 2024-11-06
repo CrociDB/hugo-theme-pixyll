@@ -1794,3 +1794,16 @@ code {
 .center-post .post-meta {
   text-align: center;
 }
+
+.related {
+  margin: 0;
+  padding: 10px;
+  padding-bottom: 0;
+}
+
+.related li {
+  margin: 0;
+  margin-bottom: 0.2rem;
+  text-align: center;
+  list-style-type: none;
+}

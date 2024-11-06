@@ -1,10 +1,8 @@
 <h2>Related posts</h2>
-<ul>
 {{ $tags := .Params.tags }}
 {{ $posts := where .Site.RegularPages "Params.tags" "intersect" $tags | shuffle | first 5}}
-<ul>
+<ul class="related">
   {{ range $posts }}
     <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
   {{ end }}
-</ul>
 </ul>

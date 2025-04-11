@@ -19,8 +19,8 @@
     <title>{{ .Title }}</title>
     <link href="{{ .Permalink }}" />
     <updated>{{ .Date.Format "2006-01-02T15:04:05Z" }}</updated>
-    <summary type="html">{{ .Summary | html }}</summary>
-    <content type="html">{{ .Content | html }}</content>
+    <summary type="html">{{ .Content | html }}</summary>
+    <!--<content type="html">{{ .Content | html }}</content>-->
   </entry>
   {{ end }}
 </feed>

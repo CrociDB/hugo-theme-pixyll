@@ -1,24 +1,26 @@
-<rss version="2.0"  xmlns:atom="http://www.w3.org/2005/Atom">
-<channel>
-    <atom:link href="https://crocidb.com/index.xml" rel="self" type="application/rss+xml" />
-    <title>{{ .Title }}, by {{ .Site.Params.Author }}</title>
-    <description>{{ .Site.Params.Description }}</description>
-    <link>{{ .Permalink }}</link>
-    {{ with .Site.LanguageCode }}<language>{{.}}</language>{{end}}
-    {{ with .Site.Copyright }}<copyright>{{.}}</copyright>{{end}}
-    <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 MST" }}</pubDate>
-    <lastBuildDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 MST" }}</lastBuildDate>
-    <generator>Hugo</generator>
+{{ "<?xml version=\"1.0\" encoding=\"utf-8\"?>" | safeHTML }}
 
-    {{ range first 15 .Site.RegularPages }}
-    <item>
-        <title>{{ .Title }}</title>
-        <link>{{ .Permalink }}</link>
-        <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 MST" }}</pubDate>
-        <guid>{{ .Permalink }}</guid>
-        <description>{{ .Summary | html }}</description>
-    </item>
-    {{ end }}
-</channel>
-</rss>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ .Title }}</title>
+  <author>
+    <name>{{ .Site.Params.Author }}</name>
+    <uri>{{ .Site.Params.AuthorWebsite }}</uri>
+  </author>
+  <link href="{{ .Permalink }}/index.xml" />
+  <id>{{ .Permalink }}</id>
+  <updated>{{ now.UTC.Format "2006-01-02T15:04:05Z" }}</updated>
+  <!--<description>{{ .Site.Params.Description | safeHTML }}</description>-->
+  <!--{{ with .Site.LanguageCode }}<language>{{.}}</language>{{end}}-->
+  <!--{{ with .Site.Copyright }}<copyright>{{.}}</copyright>{{end}}-->
 
+  {{ range first 15 .Site.RegularPages }}
+  <entry>
+    <id>{{ .Permalink }}</id>
+    <title>{{ .Title }}</title>
+    <link href="{{ .Permalink }}" />
+    <updated>{{ .Date.Format "2006-01-02T15:04:05Z" }}</updated>
+    <summary type="html">{{ .Summary | html }}</summary>
+    <content type="html">{{ .Content | html }}</content>
+  </entry>
+  {{ end }}
+</feed>
